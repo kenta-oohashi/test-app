@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
 import { posts } from "../../data/posts";
-import Header from "../Header/Header.jsx";
 import style from './PostsDetail.module.css';
 
 
@@ -21,7 +20,6 @@ export default function PostsDetail() {
 
   return (
 <div>
-  < Header />
   <div className={style["post-list-container"]}>
     <img src="https://placehold.jp/800x400.png" alt="ダミー画像" />
     <div className={style["post-card-info"]}>
@@ -37,4 +35,3 @@ export default function PostsDetail() {
   </div>
 </div>
 )}
-//post.jsの情報を使う　Header.jsxは使う
