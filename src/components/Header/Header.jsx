@@ -1,10 +1,11 @@
 import style from './Header.module.css';
+import { Link } from 'react-router-dom';
 
 export default function Header() {
     return(
       <div className={style["header"]}>
-        <a href="#">Blog</a>
-        <a href="#">お問い合わせ</a>
+        <Link to="/">Blog</Link>
+        <Link to="#">お問い合わせ</Link>
       </div>
     )
 }
