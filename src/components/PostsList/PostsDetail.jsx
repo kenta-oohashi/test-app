@@ -8,6 +8,7 @@ export default function PostsDetail() {
   const { id } = useParams();
 
   const [post, setPost] = useState(null);
+  const [loading, setLoading] = useState(true);
   
     useEffect(() => {
       const fetcher = async () => {
@@ -16,12 +17,16 @@ export default function PostsDetail() {
         );
         const data = await res.json();
         setPost(data.post);
+        setLoading(false);
       };
       fetcher();
     }, [id]);
+  
+    if(loading) {
+      return <p>データ取得中</p>
+    }
 
-
-  if(!post) {
+  if(!loading && !post) {
    return (
      <div role="alert">
         <h1>404 Not Found</h1>

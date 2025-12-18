@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 export default function PostsIndex() {
   const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetcher = async () => {
@@ -12,9 +13,23 @@ export default function PostsIndex() {
       );
       const data = await res.json();
       setPosts(data.posts);
+      setLoading(false);
     };
     fetcher();
   }, []);
+
+  if (loading) {
+    return <p>データ取得中</p>;
+  }
+
+  if (posts.length === 0) {
+    return (
+      <div role="alert">
+        <h1>404 Not Found</h1>
+        <p>記事は見つかりませんでした。</p>
+      </div>
+    );
+  }
 
   return (
     <div className={style["post-list-container"]}>
