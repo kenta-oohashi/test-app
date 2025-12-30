@@ -40,6 +40,8 @@ export default function Contact() {
     }
 
     setErrors(errors);
+
+    return !errors.name && !errors.email && !errors.message;
   };
 
   //クリアボタンを押したら中身削除（stateを初期化し空にする）
@@ -141,7 +143,7 @@ export default function Contact() {
           >
             送信
           </button>
-          <button type="submit" onClick={resetForm} disabled={isSubmitting}>
+          <button type="button" onClick={resetForm} disabled={isSubmitting}>
             クリア
           </button>
         </div>
