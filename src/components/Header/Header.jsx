@@ -5,7 +5,7 @@ export default function Header() {
     return(
       <div className={style["header"]}>
         <Link to="/">Blog</Link>
-        <Link to="#">お問い合わせ</Link>
+        <Link to="/contact">お問い合わせ</Link>
       </div>
     )
 }
